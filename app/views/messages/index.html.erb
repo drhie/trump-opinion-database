@@ -1,0 +1,31 @@
+<%= form_for @person do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label "Check off all that apply:" %>
+  <% @traits.each do |trait| %>
+    <% unless trait.id == 6 %>
+      <p><%= trait.trait %></p>
+      <%= check_box_tag 'trait[]', trait.id %>
+    <% end %>
+  <% end %>
+  <%= f.submit "See Trump's opinion of this person" %>
+<% end %>
+
+<table>
+  <tr>
+    <thead>
+      <th>Name</th>
+      <th>Opinion</th>
+      <th>Trump says:</th>
+    </thead>
+  </tr>
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+        <td><%= person.name %></td>
+        <td><%= person.opinion.status.capitalize %></td>
+        <td><%= person.message.message %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
