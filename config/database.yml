@@ -21,6 +21,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
+  <<: *default
   database: trump-opinion-generator
   host: localhost
