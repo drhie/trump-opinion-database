@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
     @person = Person.new
+    @people = Person.all
     @traits = Trait.all
   end
-  
+
   def create
     @person = Person.new(person_params)
     if trait_params[:trait]
