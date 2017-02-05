@@ -1,10 +1,4 @@
 class PeopleController < ApplicationController
-  def index
-    @people = Person.all
-    @person = Person.new
-    @traits = Trait.all
-  end
-
   def create
     @person = Person.new(person_params)
     if trait_params[:trait]
@@ -32,12 +26,12 @@ class PeopleController < ApplicationController
         @person.message_id = [13, 14, 15].sample
       end
     when 2
-      if @person.traits.include?(woman)
+      if @person.traits.include?(muslim)
+        @person.message_id = 11
+      elsif @person.traits.include?(woman)
         @person.message_id = [3, 4].sample
       elsif @person.traits.include?(hispanic)
         @person.message_id = [5, 6].sample
-      elsif @person.traits.include?(muslim)
-        @person.message_id = 11
       elsif @person.traits.include?(black)
         @person.message_id = 10
       elsif @person.traits.include?(clear)

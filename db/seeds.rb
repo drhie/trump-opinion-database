@@ -61,7 +61,7 @@ Message.create(
   trait_id:   3,
 )
 Message.create(
-  message:    "They're not coming into this country if I'm president.",
+  message:    "Not coming into this country if I'M president.",
   opinion_id: 2,
   trait_id:   4,
 )
