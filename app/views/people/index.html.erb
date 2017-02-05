@@ -16,7 +16,7 @@
         <%= f.label "Check off all that apply:" %>
         <div class="choices">
           <% @traits.each do |trait| %>
-            <% unless trait.id == 5 %>
+            <% unless trait.id >= 5 %>
             <label>
               <p><%= trait.trait.capitalize %></p>
               <%= check_box_tag 'trait[]', trait.id %>

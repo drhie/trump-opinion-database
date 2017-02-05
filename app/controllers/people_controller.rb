@@ -49,7 +49,8 @@ class PeopleController < ApplicationController
       flash[:message] = "Trump's opinion of #{@person.name.upcase} is: #{@person.message.message}"
       redirect_to root_url
     else
-      render '/messages/index'
+      flash[:message] = "This person already exists!"
+      redirect_to root_url
     end
   end
 
