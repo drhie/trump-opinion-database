@@ -3,8 +3,7 @@
     <h2>HEY Y'ALL!</h2>
     <p>Have you ever wondered what it'd be like to meet the President of the United States? Well, say no more! Wait, it's 2017, and you take that back? Well, too late!</p>
     <p>See what Donald Trump's opinion of you would be by putting in your name and checking off any incidental things you happen to also be.
-      Like, I dunno, a certain gender or part of a certain religion, or culture, or race!
-      It will have ZERO impact on your results, but you MUST check off the ones that apply! Just...for our, uh, registry!</p>
+      You MUST check off the ones that apply! Just...for our, uh, registry!</p>
     <p>Make America great again!</p>
     <div class="form">
       <%= form_for @person do |f| %>
@@ -13,7 +12,7 @@
         <%= f.text_field :name %>
       </fieldset>
       <fieldset>
-        <%= f.label "Check off all that apply:" %>
+        <p><strong>ONLY check the boxes below IF they apply:</strong></p>
         <div class="choices">
           <% @traits.each do |trait| %>
             <% unless trait.id >= 5 %>
@@ -32,24 +31,29 @@
 </div>
 
 <div class="part two">
-  <div class="table">
-    <table>
-      <tr>
-        <thead>
-          <th>Name</th>
-          <th>Opinion</th>
-          <th>Trump says:</th>
-        </thead>
-      </tr>
-      <tbody>
-        <% @people.each do |person| %>
+  <div class="preamble">
+    <h2>DATABASE</h2>
+    <p>Below is the database for all generated opinions.<br>
+      Use the form to generate more data.</p>
+    <div class="table">
+      <table>
         <tr>
-            <td><%= person.name %></td>
-            <td><%= person.opinion.status.capitalize %></td>
-            <td><%= person.message.message %></td>
+          <thead>
+            <th>Name</th>
+            <th>Opinion</th>
+            <th>Trump says:</th>
+          </thead>
         </tr>
-      <% end %>
-    </tbody>
-    </table>
+        <tbody>
+          <% @people.each do |person| %>
+          <tr>
+              <td><%= person.name %></td>
+              <td><%= person.opinion.status.capitalize %></td>
+              <td><%= person.message.message %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
   </div>
 </div>
