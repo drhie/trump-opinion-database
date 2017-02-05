@@ -41,6 +41,7 @@ class PeopleController < ApplicationController
     end
     @person.save
     if @person.save
+      flash[:message] = "Trump's opinion of #{@person.name.upcase} is: #{@person.message.message}"
       redirect_to root_url
     else
       render '/messages/index'

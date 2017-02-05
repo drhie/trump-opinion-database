@@ -1,31 +1,54 @@
-<%= form_for @person do |f| %>
-  <%= f.label "Name" %>
-  <%= f.text_field :name %>
-  <%= f.label "Check off all that apply:" %>
-  <% @traits.each do |trait| %>
-    <% unless trait.id == 6 %>
-      <p><%= trait.trait %></p>
-      <%= check_box_tag 'trait[]', trait.id %>
-    <% end %>
-  <% end %>
-  <%= f.submit "See Trump's opinion of this person" %>
-<% end %>
-
-<table>
-  <tr>
-    <thead>
-      <th>Name</th>
-      <th>Opinion</th>
-      <th>Trump says:</th>
-    </thead>
-  </tr>
-  <tbody>
-    <% @people.each do |person| %>
-    <tr>
-        <td><%= person.name %></td>
-        <td><%= person.opinion.status.capitalize %></td>
-        <td><%= person.message.message %></td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
+<div class="part one">
+  <div class="preamble">
+    <h2>HEY Y'ALL!</h2>
+    <p>Have you ever wondered what it'd be like to meet the President of the United States? Well, say no more!</p>
+    <p>See what Donald Trump's opinion of you would be by putting in your name and any incidental things you happen to also be.
+      Like, I dunno, a certain gender or part of a certain religion, or culture, or race!
+      It will have ZERO impact on your results, but you MUST check off the ones that apply! Just...for our, uh, registry!</p>
+    <p>Make America great again!</p>
+    <div class="form">
+      <%= form_for @person do |f| %>
+      <fieldset>
+        <%= f.label "Name:" %>
+        <%= f.text_field :name %>
+      </fieldset>
+      <fieldset>
+        <%= f.label "Check off any that apply:" %>
+        <div class="choices">
+          <% @traits.each do |trait| %>
+            <% unless trait.id == 5 %>
+            <label>
+              <p><%= trait.trait.capitalize %></p>
+              <%= check_box_tag 'trait[]', trait.id %>
+            </label>
+            <% end %>
+          <% end %>
+        </div>
+      </fieldset>
+        <%= f.submit "See Trump's opinion of this person!" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="part two">
+  <div class="table">
+    <table>
+      <tr>
+        <thead>
+          <th>Name</th>
+          <th>Opinion</th>
+          <th>Trump says:</th>
+        </thead>
+      </tr>
+      <tbody>
+        <% @people.each do |person| %>
+        <tr>
+            <td><%= person.name %></td>
+            <td><%= person.opinion.status.capitalize %></td>
+            <td><%= person.message.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
