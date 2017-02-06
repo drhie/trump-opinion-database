@@ -24,7 +24,7 @@
           <% end %>
         </div>
       </fieldset>
-        <%= f.submit "See Trump's opinion of this person!" %>
+        <%= f.submit "Get Trump's opinion!" %>
       <% end %>
     </div>
   </div>
@@ -46,11 +46,13 @@
         </tr>
         <tbody>
           <% @people.each do |person| %>
-          <tr>
-              <td><%= person.name %></td>
+            <% name = person.name.split(' ').each { |word| word.capitalize! } %>
+            <% name = name.join(" ") %>
+            <tr>
+              <td><%= name %></td>
               <td><%= person.opinion.status.capitalize %></td>
               <td><%= person.message.message %></td>
-          </tr>
+            </tr>
         <% end %>
       </tbody>
       </table>

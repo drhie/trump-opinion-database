@@ -120,7 +120,7 @@ fieldset > label:first-child {
 }
 
 fieldset {
-  width: 100%;
+  width: 90%;
 }
 
 .choices fieldset > label {
@@ -211,4 +211,26 @@ td {
     display: none;
   }
 
+}
+
+@media (max-width: 500px) {
+  .form {
+  }
+  fieldset {
+    margin: 0;
+  }
+
+  input[type="text"] {
+    width: 90%;
+    text-align: center;
+  }
+
+  input[type="submit"] {
+    width: 90%;
+    text-align: center;
+  }
+
+  tr th:nth-child(2n), tr td:nth-child(2n) {
+    display: none;
+  }
 }
