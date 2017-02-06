@@ -31,7 +31,7 @@ body {
 }
 
 .bar h1 {
-  font-size: 60px;
+  font-size: 3.5em;
   font-family: 'Adamina';
 }
 
@@ -203,19 +203,25 @@ td {
   table {
     width: 100%;
   }
+
+  .bar {
+    padding: 10px;
+  }
+
   .bar h1 {
-    font-size: 40px;
+    font-size: 2em;
   }
 
   .bar h2 {
     display: none;
   }
-
 }
 
-@media (max-width: 500px) {
-  .form {
+@media (max-width: 555px) {
+  .bar h1 {
+    font-size: 1.5em;
   }
+
   fieldset {
     margin: 0;
   }
