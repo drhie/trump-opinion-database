@@ -66,4 +66,8 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit(:name)
   end
+
+  def trait_params
+    params.permit(trait:[])
+  end
 end
