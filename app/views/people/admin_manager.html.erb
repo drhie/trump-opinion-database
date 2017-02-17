@@ -1,0 +1,6 @@
+<% @people.each do |person| %>
+<div style="background: white">
+  <%= person.name %>
+  <%= link_to "Delete", person, method: :delete, data: {confirm: "Are you sure?"} %>
+</div><br />
+<% end %>

@@ -5,6 +5,10 @@ class PeopleController < ApplicationController
     @traits = Trait.all
   end
 
+  def admin_manager
+    @people = Person.all
+  end
+
   def create
     @person = Person.new(person_params)
     if trait_params[:trait]
@@ -54,11 +58,12 @@ class PeopleController < ApplicationController
     end
   end
 
-  def person_params
-    params.require(:person).permit(:name)
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
   end
 
-  def trait_params
-    params.permit(trait:[])
+  def person_params
+    params.require(:person).permit(:name)
   end
 end
