@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   end
 
   def create
+    # byebug
     @person = Person.new(person_params)
     if trait_params[:trait]
       @person.traits << Trait.find(trait_params[:trait])
@@ -51,7 +52,14 @@ class PeopleController < ApplicationController
     @person.save
     if @person.save
       flash[:message] = "Trump's opinion of #{@person.name.upcase}: #{@person.message.message}"
-      redirect_to root_url
+      respond_to do |format|
+        format.html do
+          redirect_to root_url
+        end
+        format.json do
+          render json: @person
+        end
+      end
     else
       flash[:message] = "This person already exists!"
       redirect_to root_url
