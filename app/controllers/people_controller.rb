@@ -5,10 +5,6 @@ class PeopleController < ApplicationController
     @traits = Trait.all
   end
 
-  def admin_manager
-    @people = Person.all
-  end
-
   def create
     @person = Person.new(person_params)
     if trait_params[:trait]

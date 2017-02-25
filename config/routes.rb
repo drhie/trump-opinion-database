@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'people#index'
-  get '/admin_manager' => 'people#admin_manager'
+  get '/admin_manager' => 'admin#admin_manager'
   resources :messages
   resources :people
 end
