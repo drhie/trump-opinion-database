@@ -143,7 +143,7 @@ body {
 }
 
 .choices {
-  width: 98px;
+  width: 110px;
   text-align: right;
   margin: 0 40%;
 }
@@ -229,6 +229,7 @@ td {
 }
 
 @media (max-width: 991px) {
+
   .shell {
     display: inline-block;
     text-align: center;
@@ -270,6 +271,13 @@ td {
 }
 
 @media (max-width: 555px) {
+  .pop-up {
+    margin-top: -180px; /* negative height half */
+    margin-left: -160px; /* negative width half */
+    width: 320px;
+    height: 360px;
+  }
+
   .bar h1 {
     font-size: 1.5em;
   }
