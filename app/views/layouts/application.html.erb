@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TrumpsPocketbook</title>
+    <title>Trump Opinion Generator</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <meta property="og:title" content="Trump Opinion Generator">
+    <meta property="og:description" content="A satire web app that generates a Trump quote for the user">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trump-opinion-generator.herokuapp.com/">
+    <meta property="og:image" content="https://s3.ca-central-1.amazonaws.com/drhie-site-images/trump-opinion-generator.png">
+    <meta property="og:site_name" content="Trump Opinion Generator">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Adamina" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
