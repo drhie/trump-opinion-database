@@ -21,27 +21,27 @@ class PeopleController < ApplicationController
     case @person.opinion_id
     when 1
       if @person.traits.include?(woman)
-        @person.message_id = [1, 2].sample
+        @person.message_id = Message.where(trait_id: 1, opinion_id: 1).sample.id
       elsif @person.traits.include?(hispanic)
-        @person.message_id = 7
+        @person.message_id = Message.where(trait_id: 2, opinion_id: 1).sample.id
       elsif @person.traits.include?(black)
-        @person.message_id = [8, 9].sample
+        @person.message_id = Message.where(trait_id: 3, opinion_id: 1).sample.id
       elsif @person.traits.include?(muslim)
-        @person.message_id = 12
+        @person.message_id = Message.where(trait_id: 4, opinion_id: 1).sample.id
       elsif @person.traits.include?(clear)
-        @person.message_id = [13, 14, 15].sample
+        @person.message_id = Message.where(trait_id: 5, opinion_id: 1).sample.id
       end
     when 2
       if @person.traits.include?(muslim)
-        @person.message_id = 11
+        @person.message_id = Message.where(trait_id: 4, opinion_id: 2).sample.id
       elsif @person.traits.include?(woman)
-        @person.message_id = [3, 4].sample
+        @person.message_id = Message.where(trait_id: 1, opinion_id: 2).sample.id
       elsif @person.traits.include?(hispanic)
-        @person.message_id = [5, 6].sample
+        @person.message_id = Message.where(trait_id: 2, opinion_id: 2).sample.id
       elsif @person.traits.include?(black)
-        @person.message_id = 10
+        @person.message_id = Message.where(trait_id: 3, opinion_id: 2).sample.id
       elsif @person.traits.include?(clear)
-        @person.message_id = [16, 17, 18].sample
+        @person.message_id = Message.where(trait_id: 5, opinion_id: 2).sample.id
       end
     end
     @person.save
